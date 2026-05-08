@@ -4,8 +4,7 @@ import { getSystemPrompt, getUserPrompt } from "@/lib/prompts";
 import { searchWeb, buildSearchQuery, formatSourcesForPrompt } from "@/lib/search";
 import type { GenerateRequest } from "@/types";
 
-export const runtime = "edge";
-export const maxDuration = 120;
+export const maxDuration = 60;
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! });
 
