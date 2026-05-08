@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-geist-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --font-geist-mono: "Geist Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { font-family: var(--font-geist-sans); }
+  body { @apply bg-surface-900 text-white antialiased; }
+  ::selection { @apply bg-brand-600/40; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-surface-850; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-700 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-surface-200/30; }
+}
+
+@layer components {
+  .prose-dark {
+    @apply text-slate-200;
+    h1,h2,h3,h4 { @apply text-white font-medium mt-6 mb-3; }
+    h1 { @apply text-xl; }
+    h2 { @apply text-lg; }
+    h3 { @apply text-base; }
+    p  { @apply text-slate-300 leading-relaxed mb-3; }
+    ul,ol { @apply text-slate-300 mb-3 pl-5; }
+    li { @apply mb-1.5; }
+    strong { @apply text-white font-medium; }
+    code { @apply bg-surface-700 text-brand-300 px-1.5 py-0.5 rounded text-sm font-mono; }
+    pre  { @apply bg-surface-850 rounded-xl p-4 overflow-x-auto mb-4 border border-white/5; }
+    pre code { @apply bg-transparent p-0 text-slate-300; }
+    table { @apply w-full text-sm mb-4; }
+    thead { @apply border-b border-white/10; }
+    th { @apply text-left py-2 px-3 text-slate-400 font-medium; }
+    td { @apply py-2 px-3 text-slate-300 border-b border-white/5; }
+    blockquote { @apply border-l-2 border-brand-500 pl-4 italic text-slate-400; }
+    a { @apply text-brand-400 hover:text-brand-300 underline; }
+    hr { @apply border-white/10 my-5; }
+  }
+
+  .input-dark {
+    @apply w-full bg-surface-800 border border-white/10 rounded-xl px-4 py-2.5
+           text-white placeholder-slate-500 text-sm
+           focus:outline-none focus:border-brand-500/60 focus:ring-1 focus:ring-brand-500/30
+           transition-colors;
+  }
+
+  .btn-primary {
+    @apply flex items-center gap-2 px-4 py-2.5 rounded-xl
+           bg-brand-600 hover:bg-brand-500 active:bg-brand-700
+           text-white font-medium text-sm
+           transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply flex items-center gap-2 px-4 py-2.5 rounded-xl
+           bg-surface-700 hover:bg-surface-200/10 border border-white/10
+           text-slate-200 font-medium text-sm
+           transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .card-dark {
+    @apply bg-surface-800 border border-white/[0.06] rounded-2xl;
+  }
+}
